@@ -38,7 +38,7 @@ client.on("messageCreate", async (msg) => {
         }
 
         case 'rchannel': {
-            await client.db.set(`channels`, client.db.get(`channels`).splice(cnd.indexOf(msg.channel.id), 1));
+            await client.db.set(`channels`, client.db.get(`channels`).splice(client.db.get(`channel`).indexOf(msg.channel.id), 1));
             await msg.react("✅");
 
             await msg.delete().catch((e) => { return });
